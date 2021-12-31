@@ -52,3 +52,12 @@ resource "aws_instance" "prod_web" {
     "Terraform" : "true"
   }
 }
+
+resource "aws_eip" "prod_web" {
+  instance = aws_instance.prod_web.id
+
+  tags = {
+    "Terraform" : "true"
+  }
+}
+
